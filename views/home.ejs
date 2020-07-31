@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+        <%=title %>
+    </title>
+    <link rel="stylesheet" href="/styles/home.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+<section class='contact-list-container'>
+	<h1 class='heading'>
+		<i class="fa fa-paperclip" aria-hidden="true"></i>
+		CONTACT LIST
+	</h1>
+	<div class="content">
+		<ol>
+           <% for(let i of contact_list){%>
+			<li>
+				
+				<p class="details">Name: <span><%=i.name %></span> </p>
+                <p class="details">Phone: <span><%= i.phone %></span></p>
+                <!-- String Param -->
+                    <!-- Query Param -->
+                    <a href="/delete-contact/?id=<%=i._id%>">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+				</a>
+            </li>
+        <% } %>
+		</ol>
+
+	</div>
+
+	<div >
+		<form action="/add_contact" method="POST">
+			<input type="name" name="name" placeholder="Enter Name" required="" class="form">
+			<input type="number" name="phone" placeholder="Enter Phone Number" required="" class="form">
+			<button type="submit" class="button">Add Contacts</button>
+			
+		</form>
+	</div>
+</section>
+</body>
+</html>
+
+
+
+
